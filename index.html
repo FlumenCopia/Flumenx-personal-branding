@@ -413,6 +413,7 @@ section { padding: 100px 5vw; }
 .stats-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 2px;
+  min-width: 0;
 }
 
 .stat-box {
@@ -1296,6 +1297,12 @@ section { padding: 100px 5vw; }
   background: var(--rose-gold);
   padding: 100px 5vw;
   text-align: center;
+  scroll-margin-top: 88px;
+}
+
+.cta-inner {
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .cta-section h2 {
@@ -1329,12 +1336,26 @@ section { padding: 100px 5vw; }
   border: none; border-radius: 2px;
   cursor: pointer; text-decoration: none;
   transition: all 0.25s;
-  margin-right: 12px;
+  min-width: 210px;
+  text-align: center;
 }
 
 .cta-btn-dark:hover {
   background: var(--ink);
   transform: translateY(-2px);
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.cta-btn-outline {
+  background: transparent;
+  border: 2px solid var(--forest);
+  color: var(--forest);
 }
 
 /* FOOTER */
@@ -1455,7 +1476,7 @@ footer {
 /* RESPONSIVE */
 @media (max-width: 1024px) {
   .stats-band-inner { grid-template-columns: 1fr; gap: 40px; }
-  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .why-inner { grid-template-columns: 1fr; gap: 40px; }
   .sageo-layers { grid-template-columns: repeat(2, 1fr); }
   .packages-header { grid-template-columns: 1fr; gap: 20px; }
@@ -1477,6 +1498,12 @@ footer {
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
   .hero-stats { position: static; margin-top: 3rem; justify-content: flex-start; }
+  .stats-band { padding: 64px 5vw; }
+  .stats-band-inner { gap: 28px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-box { padding: 24px 18px; }
+  .stat-box .num { font-size: clamp(2.4rem, 9vw, 3rem); }
+  .stat-box .label { font-size: 0.95rem; }
   .data-strip-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
   .data-divider { display: none; }
   .sageo-layers { grid-template-columns: 1fr; }
@@ -1484,6 +1511,11 @@ footer {
   .pkg-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr; }
   section { padding: 70px 5vw; }
+  .cta-section { padding-top: 92px; padding-bottom: 80px; }
+  .cta-section h2 { font-size: clamp(2rem, 11vw, 2.8rem); }
+  .cta-section p { font-size: 1rem; margin-bottom: 2rem; }
+  .cta-actions { flex-direction: column; align-items: center; }
+  .cta-btn-dark { width: 100%; max-width: 320px; min-width: 0; padding: 16px 24px; }
 }
 </style>
 </head>
@@ -1542,6 +1574,10 @@ footer {
     <span class="scroll-text">Scroll</span>
   </div>
 </section>
+
+
+
+
 
 <!-- STATS BAND -->
 <div class="stats-band">
@@ -2231,10 +2267,14 @@ footer {
 
 <!-- CTA -->
 <section class="cta-section" id="contact">
-  <h2>Ready to be <em>found,</em><br>trusted, and chosen?</h2>
-  <p>Let's build the personal brand that walks into every room before you do. Book a free 30-minute discovery call with Anoop.</p>
-  <a href="https://wa.me/918907634900?text=Hi%20Anoop%2C%20I%27d%20like%20to%20discuss%20personal%20branding%20with%20FlumenX." class="cta-btn-dark" target="_blank">WhatsApp Now</a>
-  <a href="mailto:anoopkrishna@flumenx.com" class="cta-btn-dark" style="background:transparent;border:2px solid var(--forest);color:var(--forest);">Email Us</a>
+  <div class="cta-inner">
+    <h2>Ready to be <em>found,</em><br>trusted, and chosen?</h2>
+    <p>Let's build the personal brand that walks into every room before you do. Book a free 30-minute discovery call with Anoop.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/918907634900?text=Hi%20Anoop%2C%20I%27d%20like%20to%20discuss%20personal%20branding%20with%20FlumenX." class="cta-btn-dark" target="_blank">WhatsApp Now</a>
+      <a href="mailto:anoopkrishna@flumenx.com" class="cta-btn-dark cta-btn-outline">Email Us</a>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
